@@ -3,9 +3,10 @@ import excepciones.QueueException;
 public class QueueGen<E> { 
     private int front;
     private int rear; 
-    public static final int tamCola=5;
+    public int tamCola ;
     private E[] cola;
-    public QueueGen(int tamCola) {   
+    public QueueGen(int tamCola) { 
+        this.tamCola = tamCola;
         cola = (E[]) new Object[tamCola];
         front = -1;
         rear = -1;

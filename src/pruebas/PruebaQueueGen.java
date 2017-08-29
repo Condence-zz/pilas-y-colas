@@ -1,14 +1,13 @@
 package pruebas; 
 
 import cola.QueueGen; 
-import excepciones.QueueException;
-import java.util.Stack; 
+import excepciones.QueueException; 
 public class PruebaQueueGen { 
     public static void main(String[] args) throws QueueException {
         String errorMessage = null;
         
         // Cree una instancia de una cola circular para guardar enteros, de tamaño 5
-        QueueGen queue = new QueueGen(5);  
+        QueueGen<Integer> queue = new QueueGen<Integer>(5);  
         
         // Agregue los siguientes valores a la cola: 1, 2, 3. 
         try { 
@@ -75,7 +74,7 @@ public class PruebaQueueGen {
         }
         System.out.println("----------------------------");
         // Cree una instancia de una cola circular para guardar cadenas, de tamaño 4 
-        QueueGen queue2 = new QueueGen(4);  
+        QueueGen<String> queue2 = new QueueGen<String>(4);  
         
         // Agregue los siguientes valores a la cola: “A”, “B”.  
         try { 
@@ -114,7 +113,7 @@ public class PruebaQueueGen {
         }
         System.out.println("----------------------------");
         // Cree una instancia de una cola circular de tipo crudo, de tamaño 4 
-        QueueGen queue3 = new QueueGen(4);  
+        QueueGen queue3 = new QueueGen(5);  
         
         // Agregue los siguientes valores a la cola: 1, “A”, 2.  
         try { 
@@ -147,6 +146,35 @@ public class PruebaQueueGen {
         } catch(QueueException e) {
             System.out.println(e);
         }
-         
+
+        // Extraiga cuatro valores de la cola 
+        try { 
+            queue3.dequeue();
+            System.out.println(queue3);
+            queue3.dequeue();
+            System.out.println(queue3);
+            queue3.dequeue();
+            System.out.println(queue3);
+            queue3.dequeue();
+            System.out.println(queue3);
+        } catch(QueueException e) {
+            System.out.println(e);
+        }
+
+        // Agregue los siguientes valores a la cola: “B”, “C”.  
+        try { 
+            queue3.enqueue(3);
+            System.out.println(queue3);
+            queue3.enqueue(4);
+            System.out.println(queue3);
+            queue3.enqueue("D");
+            System.out.println(queue3); 
+            queue3.enqueue("E");
+            System.out.println(queue3);
+            queue3.enqueue(8);
+            System.out.println(queue3);
+        } catch(QueueException e) {
+            System.out.println(e);
+        }
     } 
 }

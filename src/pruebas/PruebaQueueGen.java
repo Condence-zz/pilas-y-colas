@@ -113,7 +113,7 @@ public class PruebaQueueGen {
         }
         System.out.println("----------------------------");
         // Cree una instancia de una cola circular de tipo crudo, de tamaño 4 
-        QueueGen queue3 = new QueueGen(5);  
+        QueueGen queue3 = new QueueGen(4);  
         
         // Agregue los siguientes valores a la cola: 1, “A”, 2.  
         try { 
@@ -142,7 +142,7 @@ public class PruebaQueueGen {
             queue3.enqueue("B");
             System.out.println(queue3);
             queue3.enqueue("C");
-            System.out.println(queue3);  
+            System.out.println(queue3.toString());  
         } catch(QueueException e) {
             System.out.println(e);
         }

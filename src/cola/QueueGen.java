@@ -16,7 +16,7 @@ public class QueueGen<E> {
      * @return 
      */
     public boolean full() { 
-        if(rear==tamCola-1 && front==0 || rear+1==front){
+        if(rear==tamCola-1 && front==0 || rear+1==front){ 
             return true; 
         }
         else{
@@ -67,16 +67,28 @@ public class QueueGen<E> {
         E aux = null;
         if(empty()==true){ 
             throw new QueueException("La cola esta vacia.. Inserte datos..."); 
-        } else{ 
+        } 
+        if (front == rear) {
+            front = -1;
+            rear = -1;
+        } else {
+            if (front == tamCola -1) {
+                front = 0;
+            } else{
+                front = front+1;
+            }
+        }
+        /**
+        else{ 
             aux = cola[front];
             if(front==rear){
                 front=-1;
                 rear=-1;
-            }
-            else{
+            } else{
                 front++;
             }
         }
+        */
         return aux; 
     }
     /**
@@ -96,10 +108,8 @@ public class QueueGen<E> {
         String cadena = "";
         int actual = front;
         if (!empty()) {
-            while (actual != rear) {
-
-                cadena = cadena + cola[actual] + ", ";
-
+            while (actual != rear) { 
+                cadena += cola[actual].toString() + ", "; 
                 if (actual == tamCola - 1) {
                     actual = 0;
                 } else {
